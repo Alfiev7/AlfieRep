@@ -1,0 +1,104 @@
+:root {
+    --background-color: #111;
+    --font-color: white;
+    --cell-bg-start: #761818;
+    --cell-bg-mid: #B54041;
+    --cell-bg-end: #F3686A;
+    --seat-selected-bg-start: black;
+    --seat-selected-bg-end: orange;
+    --seat-booked-bg-start: black;
+    --seat-booked-bg-end: red;
+    --seat-booked-hover-bg-start: black;
+    --seat-booked-hover-bg-end: gray;
+    --popup-bg: orange;
+    --highlight-bg: yellow;
+    --highlight-border: white;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+body {
+    background: var(--background-color);
+    color: var(--font-color);
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+  
+.cinema {
+    padding-top: 60px;
+    width: 600px;
+    margin: auto;
+}
+
+.cell {
+    width: 35px;
+    height: 50px;
+    border-radius: 7px;
+}
+
+.seat {
+    background: linear-gradient(to top, var(--cell-bg-start), var(--cell-bg-start), var(--cell-bg-start), var(--cell-bg-start), var(--cell-bg-start), var(--cell-bg-mid), var(--cell-bg-end));
+    cursor: pointer;
+}
+
+.selected {
+    background: linear-gradient(to top,  var(--seat-selected-bg-start), var(--seat-selected-bg-end));
+    animation: shake 3s; 
+    animation-iteration-count: infinite;
+}
+
+.booked {
+    background: linear-gradient(to top,  var(--seat-booked-bg-start), var(--seat-booked-bg-end));
+}
+
+.seat.booked:hover {
+    background: linear-gradient(to top,  var(--seat-booked-hover-bg-start), var(--seat-booked-hover-bg-end));
+    cursor: not-allowed;
+}
+
+.popup {
+    background-color: var(--popup-bg);
+    padding: 20px;
+    position: absolute;
+    right: 0px;
+    top: 20px;
+    border-radius: 20%;
+    box-shadow: 4px 4px 10px 0px #8e8d8d;
+}
+
+.highlight {
+    background-color: var(--highlight-bg);
+    border: 1px solid var(--highlight-border);
+    background: linear-gradient(to top,  var(--seat-booked-hover-bg-end), var(--seat-selected-bg-end));
+    
+}
+
+.book-button{
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+ 
+.highlight-button {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5em; 
+    cursor: pointer;
+}
